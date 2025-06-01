@@ -192,7 +192,7 @@ section {
 .skills {
   display: flex;
   text-align: left;
-  gap: 10em;
+  gap: 6em;
 }
 
 .skills ul {
@@ -203,6 +203,7 @@ section {
   color: #fff;
   opacity: 0.8;
   align-items: baseline;
+  margin-left: -5%;
 }
 
 .skills ul li span {
@@ -216,7 +217,9 @@ section {
 .skills ul li:hover {
   transform: translateX(10px);
 }
-
+.skills ul li{
+  margin-top: 4%;
+}
 .skills ul li i {
   font-size: 1.2em;
 }
@@ -272,7 +275,7 @@ section {
 }
 
 .box img {
-  margin-top: 2em;
+  margin-bottom: 0.5em;
   min-width: 25px;
   border-radius: 0.5em;
 }
@@ -342,6 +345,11 @@ footer {
   display: flex;
   align-items: center;
   gap: 1em;
+}
+
+.col-box span a{
+  text-decoration: none;
+  color: #fff;
 }
 
 .col-box span i {
