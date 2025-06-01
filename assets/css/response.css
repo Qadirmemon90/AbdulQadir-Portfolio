@@ -2,35 +2,7 @@
     section{
         padding: 5em 15%;
     }
-    nav .btn{
-        display: none;
-    }
-    #menu{
-        display: block;
-    }
-    .links{
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
-        padding: 1em 3em;
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        background: rgba(0, 0, 0, 0.9);
-        display: none;
-    }
-    .links a{
-        margin: 2em 0;
-        display: block;
-        font-size: 1.5em;
-        color: #fff;
-    }
-    .links .active{
-        display: block;
-    }
-
+   
     #home h1{
         font-size: 4em;
     }

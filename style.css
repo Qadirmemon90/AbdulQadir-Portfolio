@@ -7,7 +7,6 @@
   scroll-behavior: smooth;
   font-family: "Poppins";
   transition: 0.3s ease-in-out;
-  color: #fff;
 }
 
 :root {
@@ -36,24 +35,17 @@ html{
 
 /* Navbar Section Start  */
 
-nav {
+.navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 2em 15%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 2em 14%;
   background: rgba(15, 15, 15, 0.8);
   backdrop-filter: blur(10px);
   z-index: 1000;
 }
 
-ul {
-  display: flex;
-  align-items: center;
-  gap: 3em;
-}
+
 
 ul a {
   color: #fff;
@@ -63,7 +55,7 @@ nav ul a:hover {
   opacity: 1;
 }
 
-.logo {
+.navbar-brand{
   font-size: 2em;
   color: #fff;
   font-weight: 800;
@@ -71,7 +63,7 @@ nav ul a:hover {
   transition: 0.2s all ease-in-out;
 }
 
-.logo:hover {
+.navbar-brand:hover {
   opacity: 0.8;
 }
 
@@ -101,12 +93,11 @@ span {
   background-clip: text;
   color: transparent;
 }
-
-#menu {
-  color: #fff;
-  font-size: 3em;
-  display: none;
+.navbar-toggler .navbar-toggler-icon{
+  background: url("./assets/bars-solid.svg");
+  border: none;
 }
+
 
 /* Navbar Section End  */
 
