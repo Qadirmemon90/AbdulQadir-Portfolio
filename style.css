@@ -30,6 +30,10 @@ body {
   background: var(--background);
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 /* Navbar Section Start  */
 
 nav {
@@ -81,6 +85,10 @@ nav ul a:hover {
   border: 2px solid #fff;
   cursor: pointer;
   transition: 0.5s all ease-in-out;
+}
+
+.btn-box .btn a:hover {
+  color: black;
 }
 
 .btn:hover {
