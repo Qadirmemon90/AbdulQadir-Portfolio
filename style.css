@@ -29,7 +29,7 @@ body {
   background: var(--background);
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
@@ -55,7 +55,7 @@ nav ul a:hover {
   opacity: 1;
 }
 
-.navbar-brand{
+.navbar-brand {
   font-size: 2em;
   color: #fff;
   font-weight: 800;
@@ -93,13 +93,17 @@ span {
   background-clip: text;
   color: transparent;
 }
-.navbar-toggler .navbar-toggler-icon{
+
+.navbar-toggler .navbar-toggler-icon {
   background: url("./assets/bars-solid.svg");
   border: none;
 }
 
 
 /* Navbar Section End  */
+.box p {
+  font-size: 0.9rem;
+}
 
 /* Hero Section Start  */
 
@@ -217,9 +221,11 @@ section {
 .skills ul li:hover {
   transform: translateX(10px);
 }
-.skills ul li{
+
+.skills ul li {
   margin-top: 4%;
 }
+
 .skills ul li i {
   font-size: 1.2em;
 }
@@ -347,7 +353,7 @@ footer {
   gap: 1em;
 }
 
-.col-box span a{
+.col-box span a {
   text-decoration: none;
   color: #fff;
 }
