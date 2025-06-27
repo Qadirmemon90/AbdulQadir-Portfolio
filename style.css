@@ -343,6 +343,8 @@ form input:focus {
 
 .card {
   border-radius: 30px;
+  background: #181818 ;
+  border: 3px solid #646464;
 }
 
 .card-img {
@@ -350,7 +352,7 @@ form input:focus {
   margin: 0 auto;
   overflow: hidden;
   border-radius: 20px;
-
+  border: 2px solid #646464;
   margin-top: 2%;
 }
 
@@ -365,7 +367,14 @@ form input:focus {
 .card-img .img:hover {
   transform: scale(1.1);
 }
+.card-title{
+  font-size: 2rem;
+}
 
+.card-text{
+  font-size: 0.9rem;
+  height: auto;
+}
 .card-body .btn {
   padding: 11px 21px;
   background: #333;
