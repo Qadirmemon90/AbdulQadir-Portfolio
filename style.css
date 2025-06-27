@@ -328,6 +328,59 @@ form input:focus {
 
 
 /* Contact Section End   */
+:root {
+
+  --background-image: linear-gradient(to right, red, yellow);
+}
+
+/* portfolio section start   */
+.row {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  border-radius: 30px;
+}
+
+.card-img {
+  width: 95%;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+
+  margin-top: 2%;
+}
+
+.card-img .img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  transition: all .5s ease-in-out;
+  overflow: hidden;
+}
+
+.card-img .img:hover {
+  transform: scale(1.1);
+}
+
+.card-body .btn {
+  padding: 11px 21px;
+  background: #333;
+  font-weight: bold;
+  border-radius: 15px;
+  border: none ;
+}
+.card-body .btn:hover{
+  background: #111;
+  color: #fff;
+}
+
+
+/* portfolio section End   */
+
 
 /* Footer Section Start  */
 footer {
