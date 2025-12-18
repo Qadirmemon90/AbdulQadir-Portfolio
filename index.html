@@ -1,286 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AbdulQadir Memon Porfolio</title>
-  <link href="your-project-dir/icon-font/lineicons.css" rel="stylesheet" />
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AbdulQadir Memon | Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+    rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link href="https://cdn.lineicons.com/5.0/lineicons.css" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />`
-  <link rel="stylesheet" href="./assets/css/response.css">
-  <link rel="shortcut icon" href="./assets/image.webp" type="image/x-icon">
 </head>
 
+<body class="bg-[#0a0a0a] text-zinc-100 selection:bg-[#6cff52] selection:text-black">
 
-<body>
-
-  <nav class="navbar sticky-top top-0 end-0 navbar-expand-lg ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><span>AbdulQadir</span></a>
-      <button class="navbar-toggler border-none" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon" style="color: #fff;"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-4">
-          <li class="nav-item">
-            <a class="nav-link active text-light" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#portfolio">Portfolio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-light" href="#contact">Contact</a>
-          </li>
-        </ul>
-        <a href="#contact" class="btn">Contact Now</a>
+  <nav class="fixed top-0 w-full z-50 glass py-4">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <a href="#" class="text-2xl font-extrabold tracking-tighter gradient-text uppercase">AbdulQadir</a>
+      <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-[0.2em]">
+        <a href="#home" class="hover:text-[#6cff52] transition">Home</a>
+        <a href="#about" class="hover:text-[#6cff52] transition">About</a>
+        <a href="#services" class="hover:text-[#6cff52] transition">Services</a>
+        <a href="#portfolio" class="hover:text-[#6cff52] transition">Portfolio</a>
       </div>
+      <a href="#contact"
+        class="px-5 py-2 bg-white text-black rounded-full text-sm font-bold hover:scale-105 transition active:scale-95">Let's
+        Talk</a>
     </div>
   </nav>
 
-  <!-- Hero Section Start  -->
+  <section id="home"
+    class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#6cff52]/10 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#3ec5ff]/10 blur-[120px] rounded-full"></div>
 
-  <section id="home">
-    <img src="./assets/image.jpg" alt="">
-
-    <div class="info-box">
-      <h1><span>Hello, I'm AbdulQadir</span></h1>
-      <h3><span>Web Developer</span> based in Pakistan</h3>
-      <p>I specialize in crafting visually stunning and user-friendly interfaces that bring websites to life. With
-        expertise in HTML, CSS, and JavaScript, I transform ideas into pixel-perfect designs that enhance user
-        experience and engagement.</p>
-    </div>
-    <div class="btn-box">
-      <a href="tel:+923392006182" class="btn">Hire Me</a>
-      <a class="btn" href="#contact">Contact Me</a>
-    </div>
-  </section>
-
-  <!-- Hero Section End  -->
-
-
-  <!-- About Section Start  -->
-
-  <section id="about">
-    <div class="about-box">
-      <div class="about-info">
-        <h1><span>About Me</span></h1>
-        <p>Led by AbdulQadir, a skilled front-end developer based in Pakistan, our focus is on transforming creative
-          concepts into seamless digital experiences.</p>
+    <div class="reveal z-10">
+      <div class="relative inline-block mb-6">
+        <img src="./assets/image.jpg" alt="AbdulQadir"
+          class="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-white/10 p-1 object-cover">
+        <div class="absolute bottom-2 right-2 w-5 h-5 bg-[#6cff52] rounded-full border-4 border-[#0a0a0a]"></div>
       </div>
-
-      <h2><span>Skills</span></h2>
-
-      <div class="skills">
-        <ul>
-          <li><span><i class="bx bx-chevron-right"></i> Html</span></li>
-          <li><span><i class="bx bx-chevron-right"></i> Css</span></li>
-          <li><span><i class="bx bx-chevron-right"></i> JavaScript</span></li>
-        </ul>
-        <ul>
-          <li><span><i class="bx bx-chevron-right"></i> WordPress</span></li>
-          <li><span><i class="bx bx-chevron-right"></i> Graphics Desgin</span></li>
-          <li><span><i class="bx bx-chevron-right"></i> Ui UX Design</span></li>
-        </ul>
-      </div>
-    </div>
-
-    <img src="./assets/image.webp" alt="">
-  </section>
-
-  <!-- About Section End  -->
-
-  <!-- Services Section Start  -->
-
-  <section id="services">
-    <h1 class="header"><span>Services</span></h1>
-
-    <div class="services-container">
-
-      <div class="box">
-        <img src="./assets/web-design.jpg" alt="">
-        <h1><span>Web Design</span></h1>
-
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam optio, impedit id rem, praesentium
-          excepturi, nisi facere labore nihil enim necessitatibus veniam aperiam obcaecati recusandae doloribus?
-          Sapiente reprehenderit quos voluptate?</p>
-        <a href="tel:+923392006182" class="btn">Contact Now</a>
-      </div>
-
-
-
-      <div class="box">
-        <img src="./assets/web-dev.jpg" alt="">
-        <h1><span>Web Development</span></h1>
-
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam optio, impedit id rem, praesentium
-          excepturi, nisi facere labore nihil enim necessitatibus veniam aperiam obcaecati recusandae doloribus?
-          Sapiente reprehenderit quos voluptate?</p>
-        <a href="tel:+923392006182" class="btn">Contact Now</a>
-      </div>
-
-
-      <div class="box">
-        <img src="./assets/graphic.jpg" alt="">
-        <h1><span>Graphics Design</span></h1>
-
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam optio, impedit id rem, praesentium
-          excepturi, nisi facere labore nihil enim necessitatibus veniam aperiam obcaecati recusandae doloribus?
-          Sapiente reprehenderit quos voluptate?</p>
-        <a href="tel:+923392006182" class="btn">Contact Now</a>
+      <h1 class="text-5xl md:text-8xl font-extrabold tracking-tighter leading-none mb-6">
+        Creative <br> <span class="gradient-text">Developer.</span>
+      </h1>
+      <p class="max-w-xl mx-auto text-zinc-400 text-lg md:text-xl font-light mb-10 leading-relaxed">
+        Specializing in building high-performance websites in Pakistan with a focus on clean code and stunning UI.
+      </p>
+      <div class="flex flex-col md:flex-row gap-4 justify-center">
+        <a href="#portfolio"
+          class="px-8 py-4 bg-[#111] border border-white/10 rounded-2xl hover:border-[#6cff52]/50 transition group">
+          View Portfolio <i class='bx bx-right-arrow-alt group-hover:translate-x-1 transition'></i>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- Services Section End  -->
-
-  <!-- Portfolio Section Start  -->
-
-  <section id="portfolio">
-    <h1 class="header"><span>Portfolio</span></h1>
-
-    <div class="services-container">
-
-      <div class="box text-center">
-        <img src="./assets/coffee.jpg" alt="">
-        <h1><span>Coffee Websites</span></h1>
-
-        <p>Crafted an inviting hero section for a premium coffee brand.
-          Dark maroon palette sets a cozy, refined tone.
-          Dynamic coffee splash imagery adds energy and depth.
-          Clear messaging and bold CTAs drive user engagement.
-        </p>
-        <a target="_blank" href="https://coffeeshop90.netlify.app/" class="btn">Visit Now</a>
+  <div id="about" class="py-10 bg-white/5 border-y border-white/5 overflow-hidden">
+    <div class="flex whitespace-nowrap animate-scroll">
+      <div class="flex items-center gap-20 mx-10 text-xl font-bold uppercase tracking-widest text-zinc-500">
+        <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>React.js</span>
+        <span>Tailwind CSS</span> <span>WordPress</span> <span>Firebase</span> <span>Shopify</span>
       </div>
-
-
-
-      <div class="box text-center">
-        <img src="./assets/netflix.jpg" alt="">
-        <h1><span>Netflix Clone</span></h1>
-
-        <p>Streamlined hero section with bold messaging and instant clarity.
-          Vibrant background grid teases rich content variety.
-          Minimal input prompt and CTA for seamless user onboarding.
-          Designed to echo Netflix’s identity with sharp UX focus
-        </p>
-        <a target="_blank" href="https://nitflix-001.netlify.app" class="btn">Visit Now</a>
-
+      <div class="flex items-center gap-20 mx-10 text-xl font-bold uppercase tracking-widest text-zinc-500">
+        <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>React.js</span>
+        <span>Tailwind CSS</span> <span>WordPress</span> <span>Firebase</span> <span>Shopify</span>
       </div>
-
-
-      <div class="box text-center">
-        <img src="./assets/restaurat.jpg" alt="">
-        <h1><span>Restaurant Website</span></h1>
-
-        <p>Crafted a playful, appetite-driven interface for a food delivery platform.
-          Dark green tones and illustrated visuals build brand personality.
-          Clear CTAs and modular layout enhance user flow.
-          Designed to balance visual charm with conversion strategy.
-        </p>
-        <a target="_blank" href="https://metrifood.netlify.app/" class="btn">Visit Now</a>
-
-      </div>
-
     </div>
-    <div class="button d-flex align-items-center justify-content-center mt-5">
-      <a href="./pages/projects.html" class="btn">View More</a>
+  </div>
+
+
+
+  <section id="services" class="py-24 px-6 bg-[#0a0a0a]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-sm font-bold tracking-[0.3em] text-[#6cff52] uppercase mb-2">My Expertise</h2>
+        <h3 class="text-4xl md:text-6xl font-extrabold italic">Services <span class="gradient-text">I Provide</span>
+        </h3>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-500 group reveal">
+          <div
+            class="w-14 h-14 bg-[#6cff52]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#6cff52] transition-colors">
+            <i class='bx bxl-shopify text-3xl text-[#6cff52] group-hover:text-black'></i>
+          </div>
+          <h4 class="text-xl font-bold mb-3">Shopify Design</h4>
+          <p class="text-zinc-500 text-sm leading-relaxed">High-converting Shopify stores with custom liquid themes and
+            premium UI.</p>
+        </div>
+
+        <div class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-500 group reveal"
+          style="transition-delay: 100ms;">
+          <div
+            class="w-14 h-14 bg-[#3ec5ff]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#3ec5ff] transition-colors">
+            <i class='bx bx-trending-up text-3xl text-[#3ec5ff] group-hover:text-black'></i>
+          </div>
+          <h4 class="text-xl font-bold mb-3">Marketing</h4>
+          <p class="text-zinc-500 text-sm leading-relaxed">Data-driven digital marketing strategies to grow your brand's
+            online presence.</p>
+        </div>
+
+        <div class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-500 group reveal"
+          style="transition-delay: 200ms;">
+          <div
+            class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white transition-colors">
+            <i class='bx bx-search-alt text-3xl text-white group-hover:text-black'></i>
+          </div>
+          <h4 class="text-xl font-bold mb-3">SEO</h4>
+          <p class="text-zinc-500 text-sm leading-relaxed">Top-tier search engine optimization to get your website on
+            the first page of Google.</p>
+        </div>
+
+        <div class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-500 group reveal"
+          style="transition-delay: 300ms;">
+          <div
+            class="w-14 h-14 bg-[#6cff52]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#6cff52] transition-colors">
+            <i class='bx bxl-android text-3xl text-[#6cff52] group-hover:text-black'></i>
+          </div>
+          <h4 class="text-xl font-bold mb-3">Android Dev</h4>
+          <p class="text-zinc-500 text-sm leading-relaxed">Fast and fluid Android applications with clean UI and robust
+            performance.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Portfolio Section End  -->
-
-  <!-- Contact Section Start  -->
-
-  <section id="contact">
-
-    <h1 class="header"><span>Contact</span></h1>
-
-    <form action="https://formbold.com/s/35A8Z" method="POST">
-      <div class="input-box">
-        <span>Full Name</span>
-        <input type="text" name="name" id="name" required placeholder="Enter Your Full Name">
-      </div>
-      <div class="input-box">
-        <span>Your Email</span>
-        <input type="email" name="phone" id="phone" required placeholder="Enter Your Email">
-      </div>
-      <div class="input-box">
-        <span>Your Messages</span>
-        <input type="text" name="message" id="message" required placeholder="Enter Your Messages">
-      </div>
-      <button style="background: transparent;" type="submit" class="btn">Submit</button>
-    </form>
-
-  </section>
-
-  <!-- Contact Section End  -->
-
-  <!-- Footer Section Start  -->
-
-  <footer>
-
-    <div class="col-left">
-      <div class="col-box">
-        <span><i class="lni lni-map-marker-5"></i></span>
-        <span><a href="tel:+923392006182">M.A Jinnah Rd Islam Plaza Building</a></span>
+  <section id="portfolio" class="py-24 bg-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <h2 class="text-sm font-bold tracking-[0.3em] text-[#3ec5ff] uppercase mb-2">My Work</h2>
+        <h3 class="text-4xl md:text-5xl font-bold">Selected <span class="gradient-text">Projects</span></h3>
       </div>
 
-      <div class="col-box">
-        <span><i class="lni lni-telephone-1"></i></span>
-        <span><a href="tel:+923392006182">+923392006182</a></span>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="group reveal">
+          <div class="relative overflow-hidden rounded-[2rem] mb-6 border border-white/5">
+            <img src="./assets/coffee.jpg" alt="Coffee Website"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition duration-700">
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <a href="https://coffeeshop90.netlify.app/" target="_blank"
+                class="px-6 py-3 bg-white text-black font-bold rounded-full transform -translate-y-4 group-hover:translate-y-0 transition duration-500">Live
+                Demo</a>
+            </div>
+          </div>
+          <h4 class="text-xl font-bold mb-1">Coffee Shop Experience</h4>
+          <p class="text-zinc-500 text-sm italic">Brand Identity & Frontend Dev</p>
+        </div>
+
+        <div class="group reveal" style="transition-delay: 100ms;">
+          <div class="relative overflow-hidden rounded-[2rem] mb-6 border border-white/5">
+            <img src="./assets/netflix.jpg" alt="Netflix Clone"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition duration-700">
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <a href="https://nitflix-001.netlify.app" target="_blank"
+                class="px-6 py-3 bg-white text-black font-bold rounded-full transform -translate-y-4 group-hover:translate-y-0 transition duration-500">Live
+                Demo</a>
+            </div>
+          </div>
+          <h4 class="text-xl font-bold mb-1">Entertainment Platform</h4>
+          <p class="text-zinc-500 text-sm italic">UI Replication & API Integration</p>
+        </div>
+
+        <div class="group reveal" style="transition-delay: 200ms;">
+          <div class="relative overflow-hidden rounded-[2rem] mb-6 border border-white/5">
+            <img src="./assets/restaurat.jpg" alt="Restaurant Website"
+              class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition duration-700">
+            <div
+              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <a href="https://metrifood.netlify.app/" target="_blank"
+                class="px-6 py-3 bg-white text-black font-bold rounded-full transform -translate-y-4 group-hover:translate-y-0 transition duration-500">Live
+                Demo</a>
+            </div>
+          </div>
+          <h4 class="text-xl font-bold mb-1">Restaurant Website</h4>
+          <p class="text-zinc-500 text-sm italic">UI UX Design & Development</p>
+        </div>
       </div>
-      <div class="col-box">
-        <span><i class="lni lni-location-arrow-right"></i></span>
-        <span><a href="mailto:myaqoobmamen669@gmail.com">AbdulQadirDev@gmail.com</a></span>
+
+      <div class="mt-20 text-center reveal">
+        <a href="./pages/projects.html"
+          class="inline-flex items-center gap-3 px-10 py-4 glass rounded-full font-bold hover:bg-white hover:text-black transition-all duration-500 border border-white/10 group">
+          View All Projects
+          <i class='bx bx-right-arrow-alt text-xl group-hover:translate-x-2 transition'></i>
+        </a>
       </div>
     </div>
-    <div class="col-right">
-      <span>About My Services</span>
-      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde temporibus distinctio aperiam possimus, illo
-        quia neque nobis, rerum tempore perspiciatis enim laudantium eos quaerat sapiente vitae dolorem doloribus velit.
-        Facilis.</p>
+  </section>
 
-      <div class="social-icons">
+  <section id="contact" class="py-24 px-6 max-w-4xl mx-auto">
+    <div class="glass p-12 rounded-[3rem] text-center reveal">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to start a <br> <span class="gradient-text">New
+          Project?</span></h2>
+      <p class="text-zinc-400 mb-10">Contact me for freelance inquiries or full-time opportunities.</p>
 
-        <a href=""><i class="lni lni-facebook"></i></a>
-        <a href=""><i class="lni lni-instagram"></i></a>
-        <a href=""><i class="lni lni-linkedin"></i></a>
-        <a href=""><i class="lni lni-github"></i></a>
-      </div>
+      <form action="https://formbold.com/s/35A8Z" method="POST" class="space-y-4">
+        <div class="grid md:grid-cols-2 gap-4 text-left">
+          <input type="text" placeholder="Name"
+            class="w-full p-4 glass rounded-2xl outline-none focus:border-[#6cff52]/50 transition">
+          <input type="email" placeholder="Email"
+            class="w-full p-4 glass rounded-2xl outline-none focus:border-[#6cff52]/50 transition">
+        </div>
+        <textarea placeholder="Your Message" rows="4"
+          class="w-full p-4 glass rounded-2xl outline-none focus:border-[#6cff52]/50 transition text-left"></textarea>
+        <button class="w-full py-4 bg-white text-black font-bold rounded-2xl hover:bg-[#6cff52] transition">Send
+          Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="py-12 border-t border-white/5 text-center text-zinc-500 text-sm italic">
+    <p>&copy; 2025 AbdulQadir Memon. Designed for the Future.</p>
+    <div class="flex justify-center gap-6 mt-6 text-2xl not-italic">
+      <a href="https://www.facebook.com/ABDULQADIRmemon1295"><i class="bx bxl-facebook"></i></a>
+      <a href="https://www.instagram.com/qadir_memon804/"><i class="bx bxl-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/abdulqadir-memon-52048038a/"><i class="bx bxl-linkedin"></i></a>
+      <a href="https://github.com/Qadirmemon90"><i class="bx bxl-github"></i></a>
     </div>
   </footer>
 
+  <script>
+    // Intersection Observer for Scroll Animations
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, observerOptions);
 
-  <!-- Footer Section End  -->
-
-
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+  </script>
 </body>
-<script>
-  // document.addEventListener('copy', function (event) {
-  //   event.clipboardData.setData('text/plain', 'Cannot Copt any Content 🖐️🫵');
-  //   event.preventDefault();
-  // });
-</script>
-<script src="script.js"></script>
-<!-- <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool'></script>
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"
-  integrity="sha384-RuyvpeZCxMJCqVUGFI0Do1mQrods/hhxYlcVfGPOfQtPJh0JCw12tUAZ/Mv10S7D" crossorigin="anonymous"></script>
- -->
 
 </html>
