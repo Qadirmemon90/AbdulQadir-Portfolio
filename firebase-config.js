@@ -9,12 +9,11 @@ const firebaseConfig = {
     storageBucket: "solvo-7ff26.firebasestorage.app",
     messagingSenderId: "1031888612460",
     appId: "1:1031888612460:web:fa9bd69369009a4a7dfc49"
-  };
+};
 
 const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const auth = getAuth(app);
-
 
 // CRUD Helpers
 export const saveData = (col, data) => addDoc(collection(db, col), { ...data, createdAt: new Date() });
@@ -24,3 +23,6 @@ export const getData = async (col) => {
     return snap.docs.map(d => ({ id: d.id, ...d.data() }));
 };
 export const deleteData = (col, id) => deleteDoc(doc(db, col, id));
+
+// ADDED THIS EXPORT TO FIX YOUR ERROR
+export const updateData = (col, id, data) => updateDoc(doc(db, col, id), data);
