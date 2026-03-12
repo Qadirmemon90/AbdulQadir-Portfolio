@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="meta-title">AbdulQadir | Project Archive</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #050505; color: #f4f4f5; }
+    .bg-animation { position: fixed; inset: 0; z-index: -1; background: linear-gradient(-45deg, #050505, #0a1a0a, #050505, #0a111a); background-size: 400% 400%; animation: gradientShift 15s ease infinite; }
+    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    .gradient-text { background: linear-gradient(90deg, #6cff52, #3ec5ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    .animate-pulse { animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+  </style>
+</head>
+
+<body class="selection:bg-[#6cff52] selection:text-black">
+  <div class="bg-animation"></div>
+
+  <nav class="fixed top-0 w-full z-50 glass py-5">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-extrabold tracking-tighter gradient-text uppercase italic">AbdulQadir</a>
+      <a href="index.html" class="text-[10px] font-bold uppercase tracking-[0.3em] hover:text-[#6cff52] transition">Back to Home</a>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-20 px-6">
+    <div class="max-w-7xl mx-auto">
+      <h3 class="text-5xl font-bold text-white tracking-tighter mb-16 italic">Complete <span class="gradient-text">Project Archive</span></h3>
+      
+      <div id="all-projects-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="animate-pulse glass h-80 rounded-[2.5rem]"></div>
+        <div class="animate-pulse glass h-80 rounded-[2.5rem]"></div>
+        <div class="animate-pulse glass h-80 rounded-[2.5rem]"></div>
+      </div>
+    </div>
+  </main>
+
+  <section id="contact" class="py-20 px-6">
+    <div class="max-w-3xl mx-auto glass p-12 md:p-16 rounded-[3rem] border border-white/5">
+      <h2 class="text-4xl font-bold mb-8 text-center tracking-tighter">Let's <span class="gradient-text">Connect</span></h2>
+      <form id="contact-form" class="space-y-6">
+        <input type="text" placeholder="Name" class="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-[#6cff52]">
+        <input type="email" placeholder="Email" class="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-[#6cff52]">
+        <textarea placeholder="Message" rows="4" class="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-[#6cff52]"></textarea>
+        <button type="submit" class="w-full py-5 bg-white text-black font-black uppercase tracking-widest rounded-xl hover:bg-[#6cff52]">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="py-16 px-6 glass border-t border-white/10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <h4 class="text-xl font-extrabold italic tracking-tighter">AbdulQadir<span class="text-[#6cff52]">.</span></h4>
+      <p class="text-[9px] uppercase tracking-[0.3em] text-zinc-700 font-bold">&copy; 2026 METRISOLUTION PVT LTD</p>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { getData } from './firebase-config.js';
+    async function initProjects() {
+      const grid = document.getElementById('all-projects-grid');
+      try {
+        const projects = await getData('projects');
+        grid.innerHTML = projects.map(p => `
+          <div class="group">
+            <div class="relative aspect-[16/10] overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900 mb-6">
+              <img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+              <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                 <a href="${p.link}" target="_blank" class="px-8 py-3 bg-white text-black font-bold rounded-full text-[10px] uppercase tracking-widest">Live Preview</a>
+              </div>
+            </div>
+            <div class="px-2">
+              <h4 class="text-xl font-bold text-white mb-2">${p.title}</h4>
+              <p class="text-zinc-500 text-sm">${p.desc || ''}</p>
+            </div>
+          </div>
+        `).join('');
+      } catch (e) { grid.innerHTML = "<p class='text-red-500'>Error loading data.</p>"; }
+    }
+    document.addEventListener('DOMContentLoaded', initProjects);
+  </script>
+</body>
+</html>

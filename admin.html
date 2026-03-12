@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetriSolution CMS | Master Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+        body { background: #050505; color: #e4e4e7; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card { background: rgba(23, 23, 23, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); border-radius: 1.5rem; transition: all 0.3s ease; }
+        .glass-card:hover { border-color: rgba(108, 255, 82, 0.2); }
+        .input-style { background: #000; border: 1px solid #27272a; padding: 10px 14px; border-radius: 12px; outline: none; width: 100%; color: #fff; transition: all 0.2s; font-size: 0.8rem; }
+        .input-style:focus { border-color: #6cff52; box-shadow: 0 0 0 2px rgba(108, 255, 82, 0.1); }
+        .btn-primary { background: #fff; color: #000; font-weight: 700; padding: 12px; border-radius: 12px; transition: all 0.3s; width: 100%; cursor: pointer; border: none; }
+        .btn-primary:hover:not(:disabled) { background: #6cff52; transform: translateY(-2px); }
+        .btn-primary:disabled { opacity: 0.5; cursor: wait; }
+        .section-label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.8rem; display: block; }
+    </style>
+</head>
+<body class="p-4 md:p-10">
+
+    <div id="ui-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+        <div class="glass-card p-8 max-w-sm w-full text-center">
+            <i class='bx bx-check-circle text-4xl text-[#6cff52] mb-4'></i>
+            <h3 id="modal-title" class="font-bold text-lg mb-2">Success</h3>
+            <p id="modal-msg" class="text-zinc-400 text-sm mb-6"></p>
+            <button onclick="document.getElementById('ui-modal').classList.add('hidden')" class="btn-primary">Close</button>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto">
+        <header class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+            <div>
+                <h1 class="text-3xl font-extrabold tracking-tighter">Command <span class="text-[#6cff52]">Center</span></h1>
+                <p class="text-zinc-500 text-sm">Welcome back, Abdul Qadir. Controlling MetriSolution Ecosystem.</p>
+            </div>
+            <div class="flex gap-3">
+                <a href="index.html" target="_blank" class="px-5 py-2.5 glass-card text-xs font-bold uppercase hover:bg-white/5">View Site</a>
+                <button id="logout" class="px-5 py-2.5 bg-red-500/10 text-red-500 rounded-xl text-xs font-bold uppercase hover:bg-red-500 hover:text-white transition">Logout</button>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-4 space-y-6">
+                <div class="glass-card p-6 border-l-4 border-l-blue-500">
+                    <span class="section-label text-blue-400">Website SEO Settings</span>
+                    <div class="space-y-3">
+                        <input id="seo-site-title" class="input-style" placeholder="Site Meta Title">
+                        <textarea id="seo-site-desc" class="input-style h-16" placeholder="Global Meta Description"></textarea>
+                        <input id="seo-keywords" class="input-style" placeholder="Keywords (SEO, Dev, Shopify...)">
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 border-l-4 border-l-purple-500">
+                    <span class="section-label text-purple-400">Social Connections</span>
+                    <div class="space-y-3">
+                        <div class="relative"><i class='bx bxl-facebook-circle absolute left-3 top-3 text-zinc-500'></i><input id="set-fb" class="input-style pl-10" placeholder="Facebook URL"></div>
+                        <div class="relative"><i class='bx bxl-instagram absolute left-3 top-3 text-zinc-500'></i><input id="set-ig" class="input-style pl-10" placeholder="Instagram URL"></div>
+                        <div class="relative"><i class='bx bxl-linkedin-square absolute left-3 top-3 text-zinc-500'></i><input id="set-li" class="input-style pl-10" placeholder="LinkedIn URL"></div>
+                        <div class="relative"><i class='bx bxl-github absolute left-3 top-3 text-zinc-500'></i><input id="set-gh" class="input-style pl-10" placeholder="GitHub URL"></div>
+                        <div class="relative"><i class='bx bxl-whatsapp absolute left-3 top-3 text-zinc-500'></i><input id="set-wa" class="input-style pl-10" placeholder="WhatsApp Number"></div>
+                    </div>
+                </div>
+
+                <button id="btn-update-settings" onclick="saveSettings()" class="btn-primary">Update All Settings</button>
+            </div>
+
+            <div class="lg:col-span-8 space-y-8">
+                <div class="glass-card p-6">
+                    <span class="section-label text-zinc-400">Professional Bio</span>
+                    <textarea id="set-about" class="input-style h-24 mb-3" placeholder="Write your professional intro here..."></textarea>
+                </div>
+
+                <div class="glass-card p-6 border-t-4 border-t-[#3ec5ff]">
+                    <span class="section-label text-[#3ec5ff]">Portfolio & Project Details</span>
+                    <div class="grid md:grid-cols-2 gap-4 mb-6">
+                        <div class="space-y-3">
+                            <input id="p-title" class="input-style" placeholder="Project Title">
+                            <input id="p-link" class="input-style" placeholder="Live Link (https://...)">
+                            <input id="p-category" class="input-style" placeholder="Category (e.g. E-commerce)">
+                        </div>
+                        <div class="space-y-3">
+                            <textarea id="p-desc" class="input-style h-[104px]" placeholder="Project Display Description"></textarea>
+                        </div>
+                        <div class="md:col-span-2 space-y-3">
+                             <input id="p-seo-tags" class="input-style" placeholder="SEO Keywords (comma separated)">
+                             <textarea id="p-seo-desc" class="input-style h-16" placeholder="Meta Description for Search Engines"></textarea>
+                        </div>
+                        <button id="btn-pub-project" onclick="handleProjectSave()" class="btn-primary md:col-span-2">Publish Project</button>
+                    </div>
+                    <div id="projects-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="glass-card p-6">
+                        <span class="section-label text-[#6cff52]">Dynamic Services</span>
+                        <div class="space-y-3 mb-6">
+                            <input id="s-title" class="input-style" placeholder="Service Name (e.g. React, Shopify)">
+                            <textarea id="s-desc" class="input-style h-20" placeholder="Service Description"></textarea>
+                            <button id="btn-add-service" onclick="handleServiceSave()" class="btn-primary">Add Service</button>
+                        </div>
+                        <div id="services-list" class="space-y-2"></div>
+                    </div>
+
+                    <div class="glass-card p-6">
+                        <span class="section-label text-yellow-400">Skill Cloud</span>
+                        <div class="flex flex-col gap-3 mb-6">
+                            <input id="sk-name" class="input-style" placeholder="Skill Name">
+                            <button id="btn-add-skill" onclick="save('skills', {name: 'sk-name'}, 'btn-add-skill')" class="btn-primary">Add Skill</button>
+                        </div>
+                        <div id="skills-list" class="flex flex-wrap gap-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { auth, saveData, getData, deleteData, db } from './firebase-config.js';
+        import { doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+        const iconMap = {
+            'shopify': 'bxl-shopify', 'marketing': 'bx-trending-up', 'seo': 'bx-search-alt',
+            'android': 'bxl-android', 'web': 'bx-code-alt', 'design': 'bx-paint',
+            'react': 'bxl-react', 'firebase': 'bxl-firebase', 'store': 'bx-store',
+            'html': 'bxl-html5', 'css': 'bxl-css3', 'js': 'bxl-javascript',
+            'javascript': 'bxl-javascript', 'node': 'bxl-nodejs', 'php': 'bxl-php',
+            'python': 'bxl-python', 'git': 'bxl-git'
+        };
+
+        const showModal = (title, msg) => {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-msg').innerText = msg;
+            document.getElementById('ui-modal').classList.remove('hidden');
+        };
+
+        const toggleLoading = (id, loading) => {
+            const btn = document.getElementById(id);
+            btn.disabled = loading;
+            btn.innerHTML = loading ? "<i class='bx bx-loader-alt animate-spin'></i> Processing..." : (id === 'btn-update-settings' ? 'Update All Settings' : 'Add/Publish');
+        };
+
+        window.saveSettings = async () => {
+            toggleLoading('btn-update-settings', true);
+            const settings = {
+                about: document.getElementById('set-about').value,
+                fb: document.getElementById('set-fb').value,
+                ig: document.getElementById('set-ig').value,
+                li: document.getElementById('set-li').value,
+                gh: document.getElementById('set-gh').value,
+                wa: document.getElementById('set-wa').value,
+                siteTitle: document.getElementById('seo-site-title').value,
+                siteDesc: document.getElementById('seo-site-desc').value,
+                siteKeywords: document.getElementById('seo-keywords').value
+            };
+            await setDoc(doc(db, "settings", "core"), settings);
+            toggleLoading('btn-update-settings', false);
+            showModal("Success", "Digital Presence & SEO Updated!");
+        };
+
+        window.handleProjectSave = async () => {
+            toggleLoading('btn-pub-project', true);
+            const link = document.getElementById('p-link').value;
+            const title = document.getElementById('p-title').value;
+            if(!link || !title) { toggleLoading('btn-pub-project', false); return showModal("Error", "Title and Link are mandatory!"); }
+            const autoImg = `https://api.microlink.io?url=${encodeURIComponent(link)}&screenshot=true&embed=screenshot.url`;
+            await saveData('projects', { title, link, desc: document.getElementById('p-desc').value, category: document.getElementById('p-category').value, img: autoImg, seoTags: document.getElementById('p-seo-tags').value, seoDesc: document.getElementById('p-seo-desc').value });
+            ['p-title', 'p-link', 'p-desc', 'p-category', 'p-seo-tags', 'p-seo-desc'].forEach(id => document.getElementById(id).value = "");
+            renderAll();
+            toggleLoading('btn-pub-project', false);
+            showModal("Success", "Project Published!");
+        };
+
+        window.handleServiceSave = async () => {
+            toggleLoading('btn-add-service', true);
+            const title = document.getElementById('s-title').value;
+            let icon = 'bx-cube';
+            for (let key in iconMap) { if (title.toLowerCase().includes(key)) { icon = iconMap[key]; break; } }
+            await saveData('services', { title, desc: document.getElementById('s-desc').value, icon });
+            document.getElementById('s-title').value = ""; document.getElementById('s-desc').value = "";
+            renderAll();
+            toggleLoading('btn-add-service', false);
+        };
+
+        window.save = async (col, fields, btnId) => {
+            toggleLoading(btnId, true);
+            let data = {};
+            for (let key in fields) { data[key] = document.getElementById(fields[key]).value; document.getElementById(fields[key]).value = ""; }
+            await saveData(col, data); renderAll();
+            toggleLoading(btnId, false);
+        };
+
+        window.removeData = async (col, id) => {
+            if(confirm("Confirm deletion?")) { await deleteData(col, id); renderAll(); }
+        };
+
+        async function renderAll() {
+            const cols = ['services', 'projects', 'skills'];
+            for (let col of cols) {
+                const list = await getData(col);
+                const container = document.getElementById(`${col}-list`);
+                container.innerHTML = list.map(item => {
+                    if(col === 'projects') return `<div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden"><img src="${item.img}" class="w-full h-32 object-cover opacity-60"><div class="p-4"><div class="flex justify-between mb-2"><span class="text-xs font-bold">${item.title}</span><button onclick="removeData('projects', '${item.id}')" class="text-red-500"><i class='bx bx-trash'></i></button></div></div></div>`;
+                    if(col === 'services') return `<div class="flex justify-between items-center bg-white/5 p-3 rounded-xl"><div class="flex items-center gap-2"><i class='bx ${item.icon}'></i> <span class="text-[11px]">${item.title}</span></div><button onclick="removeData('services', '${item.id}')" class="text-red-500"><i class='bx bx-x-circle'></i></button></div>`;
+                    return `<span class="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold border flex items-center gap-2">${item.name} <button onclick="removeData('skills', '${item.id}')" class="text-red-500"><i class='bx bx-x-circle'></i></button></span>`;
+                }).join('');
+            }
+        }
+
+        auth.onAuthStateChanged(user => { if(!user) window.location.href = 'login.html'; });
+        document.getElementById('logout').onclick = () => auth.signOut();
+        renderAll();
+    </script>
+</body>
+</html>

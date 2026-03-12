@@ -4,236 +4,250 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AbdulQadir Memon | Portfolio</title>
+  
+  <title id="meta-title">AbdulQadir Memon | Portfolio</title>
+  <meta name="description" id="meta-desc" content="Creative Developer specializing in modern web ecosystems.">
+  <meta name="keywords" id="meta-keywords" content="Developer, Shopify, React, Firebase, Portfolio, Hire Me, Animated Background">
+
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #050505; color: #f4f4f5; margin: 0; overflow-x: hidden; }
+    
+    .bg-animation { 
+      position: fixed; inset: 0; z-index: -1; 
+      background: linear-gradient(-45deg, #050505, #0a1a0a, #050505, #0a111a);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .gradient-text { background: linear-gradient(90deg, #6cff52, #3ec5ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    
+    .hero-img-container { position: relative; width: 200px; height: 200px; margin-bottom: 2rem; }
+    .hero-img-container::before { content: ''; position: absolute; inset: -15px; background: linear-gradient(45deg, #6cff52, #3ec5ff); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; opacity: 0.2; filter: blur(20px); animation: morph 8s ease-in-out infinite; }
+    .hero-profile-img { width: 100%; height: 100%; object-fit: cover; border-radius: 3rem; border: 1px solid rgba(255,255,255,0.1); transform: rotate(-3deg); transition: 0.5s ease; }
+    .hero-img-container:hover .hero-profile-img { transform: rotate(0deg) scale(1.05); border-color: #6cff52; }
+
+    @keyframes morph {
+      0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+      50% { border-radius: 70% 30% 40% 60% / 60% 40% 50% 30%; }
+      100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    }
+
+    .skill-badge { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); padding: 12px 24px; border-radius: 100px; display: flex; align-items: center; gap: 10px; transition: all 0.4s; }
+    .skill-badge:hover { border-color: #6cff52; background: rgba(108, 255, 82, 0.05); transform: translateY(-5px); }
+    .filter-btn.active { background: #fff; color: #000; border-color: #fff; }
+
+    #loader { position: fixed; inset: 0; background: #050505; display: flex; justify-content: center; align-items: center; z-index: 9999; }
+    .loader-circle { width: 40px; height: 40px; border: 3px solid rgba(108, 255, 82, 0.1); border-top-color: #6cff52; border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
 </head>
 
-<body class="bg-[#0a0a0a] text-zinc-100 selection:bg-[#6cff52] selection:text-black">
+<body class="selection:bg-[#6cff52] selection:text-black">
 
-  <nav class="fixed top-0 w-full z-50 glass py-4">
+  <div class="bg-animation"></div>
+  <div id="loader"><div class="loader-circle"></div></div>
+
+  <nav class="fixed top-0 w-full z-50 glass py-5">
     <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-      <a href="#" class="text-2xl font-extrabold tracking-tighter gradient-text uppercase">AbdulQadir</a>
-      <div class="hidden md:flex space-x-8 text-xs font-bold uppercase tracking-[0.2em]">
+      <a href="#" class="text-2xl font-extrabold tracking-tighter gradient-text uppercase italic">AbdulQadir</a>
+      <div class="hidden md:flex space-x-10 text-[10px] font-bold uppercase tracking-[0.3em]">
         <a href="#home" class="hover:text-[#6cff52] transition">Home</a>
-        <a href="#about" class="hover:text-[#6cff52] transition">About</a>
         <a href="#services" class="hover:text-[#6cff52] transition">Services</a>
-        <a href="#portfolio" class="hover:text-[#6cff52] transition">Portfolio</a>
+        <a href="#skills" class="hover:text-[#6cff52] transition">Skills</a>
+        <a href="#portfolio" class="hover:text-[#6cff52] transition">Projects</a>
       </div>
-      <a href="tel:+923392006182"
-        class="px-5 py-2 bg-white text-black rounded-full text-sm font-bold hover:scale-105 transition active:scale-95">Let's
-        Talk</a>
+      <a href="#contact" class="px-6 py-2.5 bg-white text-black rounded-full text-xs font-bold hover:scale-105 transition">Let's Talk</a>
     </div>
   </nav>
 
-  <section id="home"
-    class="min-h-screen flex flex-col justify-center items-center text-center px-6 relative overflow-hidden">
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[#6cff52]/10 blur-[120px] rounded-full"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[#3ec5ff]/10 blur-[120px] rounded-full"></div>
-
-    <div class="reveal z-10">
-      <div class="relative inline-block mb-6">
-        <img src="./assets/image.jpg" alt="AbdulQadir"
-          class="w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-white/10 p-1 object-cover">
-        <div class="absolute bottom-2 right-2 w-5 h-5 bg-[#6cff52] rounded-full border-4 border-[#0a0a0a]"></div>
-      </div>
-      <h1 class="text-5xl md:text-8xl font-extrabold tracking-tighter leading-none mb-6">
-        Creative <br> <span class="gradient-text">Developer.</span>
-      </h1>
-      <p class="max-w-xl mx-auto text-zinc-400 text-lg md:text-xl font-light mb-10 leading-relaxed">
-        Specializing in building high-performance websites in Pakistan with a focus on clean code and stunning UI.
-      </p>
-      <div class="flex flex-col md:flex-row gap-4 justify-center">
-        <a href="#portfolio"
-          class="px-8 py-4 bg-[#111] border border-white/10 rounded-2xl hover:border-[#6cff52]/50 transition group">
-          View Portfolio <i class='bx bx-right-arrow-alt group-hover:translate-x-1 transition'></i>
-        </a>
+  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 relative">
+    <div class="reveal active flex flex-col items-center">
+      <div class="hero-img-container"><img src="./assets/image.jpg" alt="AbdulQadir Memon" class="hero-profile-img shadow-2xl shadow-[#6cff52]/10"></div>
+      <span class="px-4 py-1.5 rounded-full border border-white/10 text-[9px] uppercase tracking-[0.4em] text-zinc-500 mb-6 inline-block">Crafting Digital Architectures</span>
+      <h1 class="text-6xl md:text-[7.5rem] font-extrabold tracking-tighter leading-[0.85] mb-8">Digital <br> <span class="gradient-text">Architect.</span></h1>
+      <p id="hero-about" class="max-w-xl mx-auto text-zinc-500 text-lg font-light mb-12 leading-relaxed">Building high-performance ecosystems. Specializing in modern UI & scalable code.</p>
+      <div class="flex gap-4">
+        <a href="#contact" class="px-10 py-4 bg-[#6cff52] text-black font-bold rounded-full hover:scale-105 transition">Hire Me</a>
       </div>
     </div>
   </section>
 
-  <div id="about" class="py-10 bg-white/5 border-y border-white/5 overflow-hidden">
-    <div class="flex whitespace-nowrap animate-scroll">
-      <div class="flex items-center gap-20 mx-10 text-xl font-bold uppercase tracking-widest text-zinc-500">
-        <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>React.js</span>
-        <span>Tailwind CSS</span> <span>WordPress</span> <span>Firebase</span> <span>Shopify</span>
-      </div>
-      <div class="flex items-center gap-20 mx-10 text-xl font-bold uppercase tracking-widest text-zinc-500">
-        <span>HTML5</span> <span>CSS3</span> <span>JavaScript</span> <span>React.js</span>
-        <span>Tailwind CSS</span> <span>WordPress</span> <span>Firebase</span> <span>Shopify</span>
-      </div>
-    </div>
-  </div>
-
-
-
-  <section id="services" class="py-24 px-6 bg-[#0a0a0a]">
+  <section id="services" class="py-32 px-6">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16 reveal">
-        <h2 class="text-sm font-bold tracking-[0.3em] text-[#6cff52] uppercase mb-2">My Expertise</h2>
-        <h3 class="text-4xl md:text-6xl font-extrabold italic">Services <span class="gradient-text">I Provide</span>
-        </h3>
+        <h2 class="text-[10px] font-bold tracking-[0.5em] text-[#6cff52] uppercase mb-4">What I Offer</h2>
+        <h3 class="text-5xl font-bold text-white tracking-tighter">My <span class="italic text-zinc-600">Services</span></h3>
       </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-500 group reveal">
-          <div
-            class="w-14 h-14 bg-[#6cff52]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#6cff52] transition-colors">
-            <i class='bx bxl-shopify text-3xl text-[#6cff52] group-hover:text-black'></i>
-          </div>
-          <h4 class="text-xl font-bold mb-3">Shopify Design</h4>
-          <p class="text-zinc-500 text-sm leading-relaxed">High-converting Shopify stores with custom liquid themes and
-            premium UI.</p>
-        </div>
-
-        <div class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-500 group reveal"
-          style="transition-delay: 100ms;">
-          <div
-            class="w-14 h-14 bg-[#3ec5ff]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#3ec5ff] transition-colors">
-            <i class='bx bx-trending-up text-3xl text-[#3ec5ff] group-hover:text-black'></i>
-          </div>
-          <h4 class="text-xl font-bold mb-3">Marketing</h4>
-          <p class="text-zinc-500 text-sm leading-relaxed">Data-driven digital marketing strategies to grow your brand's
-            online presence.</p>
-        </div>
-
-        <div class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-500 group reveal"
-          style="transition-delay: 200ms;">
-          <div
-            class="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-white transition-colors">
-            <i class='bx bx-search-alt text-3xl text-white group-hover:text-black'></i>
-          </div>
-          <h4 class="text-xl font-bold mb-3">SEO</h4>
-          <p class="text-zinc-500 text-sm leading-relaxed">Top-tier search engine optimization to get your website on
-            the first page of Google.</p>
-        </div>
-
-        <div class="glass p-8 rounded-[2rem] hover:bg-white/5 transition-all duration-500 group reveal"
-          style="transition-delay: 300ms;">
-          <div
-            class="w-14 h-14 bg-[#6cff52]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#6cff52] transition-colors">
-            <i class='bx bxl-android text-3xl text-[#6cff52] group-hover:text-black'></i>
-          </div>
-          <h4 class="text-xl font-bold mb-3">Android Dev</h4>
-          <p class="text-zinc-500 text-sm leading-relaxed">Fast and fluid Android applications with clean UI and robust
-            performance.</p>
-        </div>
-      </div>
+      <div id="services-grid" class="grid md:grid-cols-3 gap-8 reveal"></div>
     </div>
   </section>
 
-  <section id="portfolio" class="py-24 bg-white/5">
-    <div class="max-w-7xl mx-auto px-6">
-      <div class="text-center mb-16 reveal">
-        <h2 class="text-sm font-bold tracking-[0.3em] text-[#3ec5ff] uppercase mb-2">My Work</h2>
-        <h3 class="text-4xl md:text-5xl font-bold">Selected <span class="gradient-text">Projects</span></h3>
+  <section id="skills" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto text-center">
+      <div class="mb-16 reveal">
+        <h2 class="text-[10px] font-bold tracking-[0.5em] text-[#6cff52] uppercase mb-4">The Stack</h2>
+        <h3 class="text-5xl font-bold text-white tracking-tighter">My Expertise <span class="text-zinc-600 italic">Cloud</span></h3>
       </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="group reveal">
-          <div class="relative overflow-hidden rounded-[2rem] mb-6 border border-white/5">
-            <img src="./assets/coffee.jpg" alt="Coffee Website"
-              class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition duration-700">
-            <div
-              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <a href="https://coffeeshop90.netlify.app/" target="_blank"
-                class="px-6 py-3 bg-white text-black font-bold rounded-full transform -translate-y-4 group-hover:translate-y-0 transition duration-500">Live
-                Demo</a>
-            </div>
-          </div>
-          <h4 class="text-xl font-bold mb-1">Coffee Shop Experience</h4>
-          <p class="text-zinc-500 text-sm italic">Brand Identity & Frontend Dev</p>
-        </div>
-
-        <div class="group reveal" style="transition-delay: 100ms;">
-          <div class="relative overflow-hidden rounded-[2rem] mb-6 border border-white/5">
-            <img src="./assets/netflix.jpg" alt="Netflix Clone"
-              class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition duration-700">
-            <div
-              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <a href="https://nitflix-001.netlify.app" target="_blank"
-                class="px-6 py-3 bg-white text-black font-bold rounded-full transform -translate-y-4 group-hover:translate-y-0 transition duration-500">Live
-                Demo</a>
-            </div>
-          </div>
-          <h4 class="text-xl font-bold mb-1">Entertainment Platform</h4>
-          <p class="text-zinc-500 text-sm italic">UI Replication & API Integration</p>
-        </div>
-
-        <div class="group reveal" style="transition-delay: 200ms;">
-          <div class="relative overflow-hidden rounded-[2rem] mb-6 border border-white/5">
-            <img src="./assets/restaurat.jpg" alt="Restaurant Website"
-              class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition duration-700">
-            <div
-              class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <a href="https://metrifood.netlify.app/" target="_blank"
-                class="px-6 py-3 bg-white text-black font-bold rounded-full transform -translate-y-4 group-hover:translate-y-0 transition duration-500">Live
-                Demo</a>
-            </div>
-          </div>
-          <h4 class="text-xl font-bold mb-1">Restaurant Website</h4>
-          <p class="text-zinc-500 text-sm italic">UI UX Design & Development</p>
-        </div>
-      </div>
-
-      <div class="mt-20 text-center reveal">
-        <a href="./pages/projects.html"
-          class="inline-flex items-center gap-3 px-10 py-4 glass rounded-full font-bold hover:bg-white hover:text-black transition-all duration-500 border border-white/10 group">
-          View All Projects
-          <i class='bx bx-right-arrow-alt text-xl group-hover:translate-x-2 transition'></i>
-        </a>
-      </div>
+      <div id="skills-cloud" class="flex flex-wrap justify-center gap-4 reveal"></div>
     </div>
   </section>
 
-  <section id="contact" class="py-24 px-6 max-w-4xl mx-auto">
-    <div class="glass p-12 rounded-[3rem] text-center reveal">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">Ready to start a <br> <span class="gradient-text">New
-          Project?</span></h2>
-      <p class="text-zinc-400 mb-10">Contact me for freelance inquiries or full-time opportunities.</p>
-
-      <form action="https://formbold.com/s/35A8Z" method="POST" class="space-y-4">
-        <div class="grid md:grid-cols-2 gap-4 text-left">
-          <input type="text" placeholder="Name"
-            class="w-full p-4 glass rounded-2xl outline-none focus:border-[#6cff52]/50 transition">
-          <input type="email" placeholder="Email"
-            class="w-full p-4 glass rounded-2xl outline-none focus:border-[#6cff52]/50 transition">
+  <section id="portfolio" class="py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16 reveal">
+        <div>
+          <h2 class="text-sm font-bold tracking-[0.3em] text-[#3ec5ff] uppercase mb-2">Projects</h2>
+          <h3 class="text-5xl font-bold text-white tracking-tighter italic">Selected <span class="gradient-text">Works</span></h3>
         </div>
-        <textarea placeholder="Your Message" rows="4"
-          class="w-full p-4 glass rounded-2xl outline-none focus:border-[#6cff52]/50 transition text-left"></textarea>
-        <button class="w-full py-4 bg-white text-black font-bold rounded-2xl hover:bg-[#6cff52] transition">Send
-          Message</button>
+        <div id="filter-tabs" class="flex flex-wrap gap-2 text-[10px] font-bold uppercase tracking-widest"></div>
+      </div>
+      <div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-32 px-6">
+    <div class="max-w-3xl mx-auto glass p-12 md:p-16 rounded-[3rem] reveal border border-white/5">
+      <h2 class="text-4xl font-bold mb-8 text-center tracking-tighter">Let's <span class="gradient-text">Connect</span></h2>
+      <form id="contact-form" class="space-y-6">
+        <div class="grid md:grid-cols-2 gap-6">
+          <input type="text" placeholder="Name" class="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-[#6cff52] transition">
+          <input type="email" placeholder="Email" class="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-[#6cff52] transition">
+        </div>
+        <textarea placeholder="Message" rows="4" class="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-[#6cff52] transition"></textarea>
+        <button type="submit" class="w-full py-5 bg-white text-black font-black uppercase tracking-widest rounded-xl hover:bg-[#6cff52] transition-all transform hover:scale-[1.01]">Send Message</button>
       </form>
     </div>
   </section>
 
-  <footer class="py-12 border-t border-white/5 text-center text-zinc-500 text-sm italic">
-    <p>&copy; 2025 AbdulQadir Memon. Designed for the Future.</p>
-    <div class="flex justify-center gap-6 mt-6 text-2xl not-italic">
-      <a href="https://www.facebook.com/ABDULQADIRmemon1295"><i class="bx bxl-facebook"></i></a>
-      <a href="https://www.instagram.com/qadir_memon804/"><i class="bx bxl-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/abdulqadir-memon-52048038a/"><i class="bx bxl-linkedin"></i></a>
-      <a href="https://github.com/Qadirmemon90"><i class="bx bxl-github"></i></a>
+  <footer class="py-16 px-6 glass border-t border-white/10">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="text-center md:text-left">
+        <h4 class="text-xl font-extrabold italic tracking-tighter mb-2">AbdulQadir<span class="text-[#6cff52]">.</span></h4>
+        <p class="text-[10px] uppercase tracking-[0.2em] text-zinc-500 font-bold">Building Digital Future</p>
+      </div>
+      <div class="flex gap-6 text-2xl text-zinc-400" id="social-links"></div>
+      <p class="text-[9px] uppercase tracking-[0.3em] text-zinc-700 font-bold italic">&copy; 2026 METRISOLUTION PVT LTD</p>
     </div>
   </footer>
 
-  <script>
-    // Intersection Observer for Scroll Animations
-    const observerOptions = { threshold: 0.1 };
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
+  <script type="module">
+    import { getData, db } from './firebase-config.js';
+    import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    let allProjects = [];
+
+    async function init() {
+      try {
+        const settingsSnap = await getDoc(doc(db, "settings", "core"));
+        if (settingsSnap.exists()) {
+          const s = settingsSnap.data();
+          document.getElementById('meta-title').innerText = s.siteTitle || "AbdulQadir Memon";
+          document.getElementById('meta-desc').content = s.siteDesc || "";
+          if(s.about) document.getElementById('hero-about').innerText = s.about;
+          
+          document.getElementById('social-links').innerHTML = `
+            ${s.fb ? `<a href="${s.fb}" target="_blank" class="hover:text-[#6cff52] transition"><i class='bx bxl-facebook'></i></a>` : ''}
+            ${s.ig ? `<a href="${s.ig}" target="_blank" class="hover:text-[#6cff52] transition"><i class='bx bxl-instagram'></i></a>` : ''}
+            ${s.li ? `<a href="${s.li}" target="_blank" class="hover:text-[#6cff52] transition"><i class='bx bxl-linkedin'></i></a>` : ''}
+            ${s.wa ? `<a href="https://wa.me/${s.wa}" target="_blank" class="hover:text-[#6cff52] transition"><i class='bx bxl-whatsapp'></i></a>` : ''}
+            ${s.gh ? `<a href="${s.gh}" target="_blank" class="hover:text-[#6cff52] transition"><i class='bx bxl-github'></i></a>` : ''}
+          `;
+        }
+
+        const [skills, services, projects] = await Promise.all([
+          getData('skills'),
+          getData('services'),
+          getData('projects')
+        ]);
+
+        document.getElementById('services-grid').innerHTML = services.map(s => `
+          <div class="glass p-8 rounded-[2rem] hover:border-[#6cff52] transition border border-white/5">
+            <i class='bx ${s.icon || 'bx-code-alt'} text-4xl text-[#6cff52] mb-6'></i>
+            <h4 class="text-xl font-bold mb-3">${s.title}</h4>
+            <p class="text-zinc-500 text-sm leading-relaxed">${s.desc}</p>
+          </div>
+        `).join('');
+
+        document.getElementById('skills-cloud').innerHTML = skills.map(sk => `
+          <div class="skill-badge group">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#6cff52] shadow-[0_0_5px_#6cff52]"></span>
+            <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 group-hover:text-white">${sk.name}</span>
+          </div>
+        `).join('');
+
+        allProjects = projects;
+        const categories = ['all', ...new Set(allProjects.map(p => p.category || 'Other'))];
+        document.getElementById('filter-tabs').innerHTML = categories.map(cat => `
+          <button onclick="filterPortfolio('${cat}')" class="filter-btn px-6 py-3 rounded-full border border-white/5 glass transition capitalize">${cat}</button>
+        `).join('');
+
+        renderPortfolio('all');
+        setTimeout(() => document.getElementById('loader').style.display = 'none', 500);
+      } catch (e) { console.error("Sync Error:", e); }
+    }
+
+    window.filterPortfolio = (cat) => {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.innerText.toLowerCase() === cat.toLowerCase() || (cat === 'all' && btn.innerText.toLowerCase().includes('all'))) {
+            btn.classList.add('active');
         }
       });
-    }, observerOptions);
+      renderPortfolio(cat);
+    };
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    function renderPortfolio(category) {
+      const filtered = category === 'all' ? allProjects : allProjects.filter(p => p.category === category);
+      
+      // Limit to 6 projects
+      const displayProjects = filtered.slice(0, 6);
+      
+      let gridHTML = displayProjects.map(p => `
+        <div class="reveal active group">
+          <div class="relative aspect-[16/10] overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900 mb-6">
+            <img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+            <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+               <a href="${p.link}" target="_blank" class="px-8 py-3 bg-white text-black font-bold rounded-full text-[10px] uppercase tracking-widest">Live Preview</a>
+            </div>
+          </div>
+          <h4 class="text-xl font-bold text-white mb-2 px-2">${p.title}</h4>
+        </div>
+      `).join('');
+
+      // Add "View All" button if more than 6 projects
+      if (filtered.length > 6) {
+        gridHTML += `
+          <div class="flex items-center justify-center col-span-full mt-10">
+            <a href="projects.html" class="px-10 py-5 bg-white/5 border border-white/10 rounded-full font-bold hover:bg-[#6cff52] hover:text-black transition uppercase text-xs tracking-widest">
+              View All Projects
+            </a>
+          </div>
+        `;
+      }
+
+      document.getElementById('portfolio-grid').innerHTML = gridHTML;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+    }, { threshold: 0.1 });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      init();
+      setTimeout(() => document.querySelectorAll('.reveal').forEach(el => observer.observe(el)), 1200);
+    });
   </script>
 </body>
-
-
 </html>
