@@ -2,25 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login | AbdulQadir</title>
+    <meta name="robots" content="noindex, nofollow">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #0a0a0a; }
-        .glass { background: rgba(255,255,255,0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.05); }
-    </style>
+    <link href="./style.css" rel="stylesheet">
 </head>
-<body class="flex items-center justify-center min-h-screen p-6">
-    <div class="glass p-10 rounded-[2.5rem] w-full max-w-md text-center">
-        <h1 class="text-3xl font-extrabold mb-2 text-white">Welcome Back</h1>
-        <p class="text-zinc-500 mb-8 text-sm">Secure access for AbdulQadir Memon</p>
-        
-        <form id="login-form" class="space-y-4">
-            <input type="email" id="email" placeholder="Email" class="w-full p-4 bg-black rounded-2xl border border-white/5 outline-none text-white focus:border-[#6cff52]/50 transition" required>
-            <input type="password" id="pass" placeholder="Password" class="w-full p-4 bg-black rounded-2xl border border-white/5 outline-none text-white focus:border-[#6cff52]/50 transition" required>
-            <button type="submit" class="w-full py-4 bg-white text-black font-bold rounded-2xl hover:bg-[#6cff52] transition transform active:scale-95">Login to Dashboard</button>
-        </form>
-    </div>
+<body>
+    <main class="auth-layout">
+        <section class="auth-visual" aria-label="Portfolio administration">
+            <a href="index.html" class="brand-mark text-xl font-extrabold gradient-text relative z-10">AbdulQadir</a>
+            <div class="relative z-10 max-w-xl py-12">
+                <p class="status-dot text-[10px] font-bold uppercase tracking-[.3em] text-zinc-400 mb-6">Private workspace</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-[-.06em] leading-[.92] mb-6">Create. Curate. <span class="gradient-text">Publish.</span></h1>
+                <p class="text-zinc-400 leading-relaxed max-w-md">One focused workspace for managing projects, services, skills, and your digital presence.</p>
+            </div>
+            <p class="relative z-10 text-[10px] uppercase tracking-[.25em] text-zinc-600">MetriSolution content system</p>
+        </section>
+
+        <section class="auth-panel">
+            <div class="auth-card glass">
+                <div class="mb-8">
+                    <p class="text-[10px] font-bold uppercase tracking-[.3em] text-[#b8ff63] mb-4">Admin access</p>
+                    <h2 class="text-3xl font-extrabold mb-2 text-white tracking-tight">Welcome back</h2>
+                    <p class="text-zinc-500 text-sm">Sign in to manage your portfolio.</p>
+                </div>
+                <form id="login-form" class="space-y-4">
+                    <label class="block text-xs font-bold text-zinc-400" for="email">Email address</label>
+                    <input type="email" id="email" autocomplete="email" placeholder="you@example.com" class="modern-input" required>
+                    <label class="block text-xs font-bold text-zinc-400 pt-2" for="pass">Password</label>
+                    <input type="password" id="pass" autocomplete="current-password" placeholder="Enter your password" class="modern-input" required>
+                    <button type="submit" class="btn-primary !py-4 !mt-7">Continue to dashboard</button>
+                </form>
+                <a href="index.html" class="block mt-7 text-center text-xs text-zinc-500 hover:text-white transition">← Return to portfolio</a>
+            </div>
+        </section>
+    </main>
 
     <script type="module">
         import { auth } from './firebase-config.js';

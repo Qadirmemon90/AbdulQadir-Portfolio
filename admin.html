@@ -1,250 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MetriSolution CMS | Master Admin</title>
-    <meta name="description" content="Master administration dashboard for MetriSolution ecosystem management.">
-    <meta name="keywords" content="CMS, Admin, Portfolio, SEO, Management">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
-        body { background: #050505; color: #e4e4e7; font-family: 'Plus Jakarta Sans', sans-serif; }
-        .glass-card { background: rgba(23, 23, 23, 0.6); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.05); border-radius: 1.5rem; transition: all 0.3s ease; }
-        .glass-card:hover { border-color: rgba(108, 255, 82, 0.2); }
-        .input-style { background: #000; border: 1px solid #27272a; padding: 10px 14px; border-radius: 12px; outline: none; width: 100%; color: #fff; transition: all 0.2s; font-size: 0.8rem; }
-        .input-style:focus { border-color: #6cff52; box-shadow: 0 0 0 2px rgba(108, 255, 82, 0.1); }
-        .btn-primary { background: #fff; color: #000; font-weight: 700; padding: 12px; border-radius: 12px; transition: all 0.3s; width: 100%; cursor: pointer; border: none; }
-        .btn-primary:hover:not(:disabled) { background: #6cff52; transform: translateY(-2px); }
-        .btn-primary:disabled { opacity: 0.5; cursor: wait; }
-        .section-label { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 0.8rem; display: block; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Overview | AbdulQadir CMS</title>
+  <meta name="robots" content="noindex, nofollow">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
 </head>
-<body class="p-4 md:p-10">
+<body class="admin-page" data-admin-page="overview">
+  <div class="admin-app">
+    <aside class="admin-rail" aria-label="Dashboard navigation">
+      <a href="admin.html" class="admin-logo"><span class="admin-logo__icon">AQ</span><span><strong>AbdulQadir</strong><small>Portfolio CMS</small></span></a>
+      <nav class="admin-menu">
+        <p>Workspace</p>
+        <a href="admin.html" data-page="overview"><i class='bx bx-grid-alt'></i><span>Overview</span></a>
+        <a href="admin-projects.html" data-page="projects"><i class='bx bx-briefcase-alt-2'></i><span>Projects</span></a>
+        <a href="admin-services.html" data-page="services"><i class='bx bx-layer'></i><span>Services</span></a>
+        <a href="admin-skills.html" data-page="skills"><i class='bx bx-code-alt'></i><span>Skills</span></a>
+        <a href="admin-settings.html" data-page="settings"><i class='bx bx-slider-alt'></i><span>Settings</span></a>
+      </nav>
+      <div class="admin-rail__footer"><div class="admin-profile"><span>AM</span><div><strong>Abdul Qadir</strong><small>Administrator</small></div></div><button id="logout" class="admin-logout" aria-label="Log out"><i class='bx bx-log-out'></i></button></div>
+    </aside>
 
-    <div id="ui-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-        <div class="glass-card p-8 max-w-sm w-full text-center">
-            <i class='bx bx-check-circle text-4xl text-[#6cff52] mb-4'></i>
-            <h3 id="modal-title" class="font-bold text-lg mb-2">Success</h3>
-            <p id="modal-msg" class="text-zinc-400 text-sm mb-6"></p>
-            <button onclick="document.getElementById('ui-modal').classList.add('hidden')" class="btn-primary">Close</button>
-        </div>
+    <div class="admin-workspace">
+      <header class="admin-topbar">
+        <div><p class="text-[9px] uppercase tracking-[.3em] text-zinc-500 font-bold mb-1">Dashboard</p><h1 class="text-2xl font-extrabold tracking-tighter">Overview <span class="gradient-text">Center</span></h1></div>
+        <div class="flex items-center gap-3"><span class="admin-live hidden sm:inline-flex"><i></i> Website live</span><a href="index.html" target="_blank" rel="noopener" class="admin-view-site">View portfolio <i class='bx bx-up-arrow-alt'></i></a></div>
+      </header>
+
+      <main class="admin-content">
+        <section class="admin-welcome">
+          <div><p class="admin-eyebrow">Welcome back</p><h2>Manage your digital presence.</h2><p>Everything is separated into focused pages, so content management stays fast and organized.</p></div>
+          <a href="admin-projects.html" class="admin-quick-action"><i class='bx bx-plus'></i> Add new project</a>
+        </section>
+
+        <section class="admin-stats" aria-label="Content summary">
+          <a href="admin-projects.html"><article><div class="admin-stat-icon lime"><i class='bx bx-briefcase-alt-2'></i></div><div><span>Projects</span><strong id="project-count">—</strong><small>Manage published work</small></div><i class='bx bx-right-arrow-alt admin-stat-arrow'></i></article></a>
+          <a href="admin-services.html"><article><div class="admin-stat-icon blue"><i class='bx bx-layer'></i></div><div><span>Services</span><strong id="service-count">—</strong><small>Manage active offers</small></div><i class='bx bx-right-arrow-alt admin-stat-arrow'></i></article></a>
+          <a href="admin-skills.html"><article><div class="admin-stat-icon purple"><i class='bx bx-code-alt'></i></div><div><span>Skills</span><strong id="skill-count">—</strong><small>Manage listed expertise</small></div><i class='bx bx-right-arrow-alt admin-stat-arrow'></i></article></a>
+        </section>
+
+        <section class="admin-overview-grid">
+          <article class="admin-panel p-7"><div class="admin-panel__heading"><span class="admin-panel__icon lime"><i class='bx bx-rocket'></i></span><div><h3>Quick actions</h3><p>Jump directly to common tasks</p></div></div><div class="admin-action-list"><a href="admin-projects.html"><i class='bx bx-plus-circle'></i><span><strong>Publish a project</strong><small>Add a new portfolio case study</small></span><i class='bx bx-chevron-right'></i></a><a href="admin-services.html"><i class='bx bx-layer-plus'></i><span><strong>Add a service</strong><small>Expand your professional offers</small></span><i class='bx bx-chevron-right'></i></a><a href="admin-settings.html"><i class='bx bx-edit'></i><span><strong>Update profile</strong><small>Edit bio, SEO and social links</small></span><i class='bx bx-chevron-right'></i></a></div></article>
+          <article class="admin-panel p-7"><div class="admin-panel__heading"><span class="admin-panel__icon blue"><i class='bx bx-sitemap'></i></span><div><h3>Admin structure</h3><p>Five focused management areas</p></div></div><div class="admin-structure-list"><div><span>01</span><p><strong>Overview</strong><small>Content snapshot</small></p></div><div><span>02</span><p><strong>Projects</strong><small>Portfolio work</small></p></div><div><span>03</span><p><strong>Services & Skills</strong><small>Professional capabilities</small></p></div><div><span>04</span><p><strong>Settings</strong><small>Profile and SEO</small></p></div></div></article>
+        </section>
+      </main>
     </div>
+  </div>
 
-    <div id="edit-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-        <div class="glass-card p-8 max-w-md w-full">
-            <h3 class="font-bold text-lg mb-4">Edit Project</h3>
-            <input type="hidden" id="edit-id">
-            <div class="space-y-3">
-                <input id="edit-title" class="input-style" placeholder="Title">
-                <input id="edit-link" class="input-style" placeholder="Live Link">
-                <input id="edit-cat" class="input-style" placeholder="Category">
-                <textarea id="edit-desc" class="input-style h-20" placeholder="Description"></textarea>
-                <input id="edit-seo-tags" class="input-style" placeholder="SEO Keywords">
-                <textarea id="edit-seo-desc" class="input-style h-16" placeholder="Meta Description"></textarea>
-            </div>
-            <div class="flex gap-3 mt-6">
-                <button onclick="document.getElementById('edit-modal').classList.add('hidden')" class="w-full py-3 bg-zinc-800 rounded-xl font-bold text-xs uppercase">Cancel</button>
-                <button id="btn-save-edit" onclick="submitEdit()" class="w-full py-3 bg-[#6cff52] text-black rounded-xl font-bold text-xs uppercase">Update</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="max-w-7xl mx-auto">
-        <header class="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
-            <div>
-                <h1 class="text-3xl font-extrabold tracking-tighter">Command <span class="text-[#6cff52]">Center</span></h1>
-                <p class="text-zinc-500 text-sm">Welcome back, Abdul Qadir. Controlling MetriSolution Ecosystem.</p>
-            </div>
-            <div class="flex gap-3">
-                <a href="index.html" target="_blank" class="px-5 py-2.5 glass-card text-xs font-bold uppercase hover:bg-white/5">View Site</a>
-                <button id="logout" class="px-5 py-2.5 bg-red-500/10 text-red-500 rounded-xl text-xs font-bold uppercase hover:bg-red-500 hover:text-white transition">Logout</button>
-            </div>
-        </header>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div class="lg:col-span-4 space-y-6">
-                <div class="glass-card p-6 border-l-4 border-l-blue-500">
-                    <span class="section-label text-blue-400">Website SEO Settings</span>
-                    <div class="space-y-3">
-                        <input id="seo-site-title" class="input-style" placeholder="Site Meta Title">
-                        <textarea id="seo-site-desc" class="input-style h-16" placeholder="Global Meta Description"></textarea>
-                        <input id="seo-keywords" class="input-style" placeholder="Keywords (SEO, Dev, Shopify...)">
-                    </div>
-                </div>
-
-                <div class="glass-card p-6 border-l-4 border-l-purple-500">
-                    <span class="section-label text-purple-400">Social Connections</span>
-                    <div class="space-y-3">
-                        <div class="relative"><i class='bx bxl-facebook-circle absolute left-3 top-3 text-zinc-500'></i><input id="set-fb" class="input-style pl-10" placeholder="Facebook URL"></div>
-                        <div class="relative"><i class='bx bxl-instagram absolute left-3 top-3 text-zinc-500'></i><input id="set-ig" class="input-style pl-10" placeholder="Instagram URL"></div>
-                        <div class="relative"><i class='bx bxl-linkedin-square absolute left-3 top-3 text-zinc-500'></i><input id="set-li" class="input-style pl-10" placeholder="LinkedIn URL"></div>
-                        <div class="relative"><i class='bx bxl-github absolute left-3 top-3 text-zinc-500'></i><input id="set-gh" class="input-style pl-10" placeholder="GitHub URL"></div>
-                        <div class="relative"><i class='bx bxl-whatsapp absolute left-3 top-3 text-zinc-500'></i><input id="set-wa" class="input-style pl-10" placeholder="WhatsApp Number"></div>
-                    </div>
-                </div>
-
-                <button id="btn-update-settings" onclick="saveSettings()" class="btn-primary">Update All Settings</button>
-            </div>
-
-            <div class="lg:col-span-8 space-y-8">
-                <div class="glass-card p-6">
-                    <span class="section-label text-zinc-400">Professional Bio</span>
-                    <textarea id="set-about" class="input-style h-24 mb-3" placeholder="Write your professional intro here..."></textarea>
-                </div>
-
-                <div class="glass-card p-6 border-t-4 border-t-[#3ec5ff]">
-                    <span class="section-label text-[#3ec5ff]">Portfolio & Project Details</span>
-                    <div class="grid md:grid-cols-2 gap-4 mb-6">
-                        <div class="space-y-3">
-                            <input id="p-title" class="input-style" placeholder="Project Title">
-                            <input id="p-link" class="input-style" placeholder="Live Link (https://...)">
-                            <input id="p-category" class="input-style" placeholder="Category (e.g. E-commerce)">
-                        </div>
-                        <div class="space-y-3">
-                            <textarea id="p-desc" class="input-style h-[104px]" placeholder="Project Display Description"></textarea>
-                        </div>
-                        <div class="md:col-span-2 space-y-3">
-                             <input id="p-seo-tags" class="input-style" placeholder="SEO Keywords (comma separated)">
-                             <textarea id="p-seo-desc" class="input-style h-16" placeholder="Meta Description for Search Engines"></textarea>
-                        </div>
-                        <button id="btn-pub-project" onclick="handleProjectSave()" class="btn-primary md:col-span-2">Publish Project</button>
-                    </div>
-                    <div id="projects-list" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="glass-card p-6">
-                        <span class="section-label text-[#6cff52]">Dynamic Services</span>
-                        <div class="space-y-3 mb-6">
-                            <input id="s-title" class="input-style" placeholder="Service Name (e.g. React, Shopify)">
-                            <textarea id="s-desc" class="input-style h-20" placeholder="Service Description"></textarea>
-                            <button id="btn-add-service" onclick="handleServiceSave()" class="btn-primary">Add Service</button>
-                        </div>
-                        <div id="services-list" class="space-y-2"></div>
-                    </div>
-
-                    <div class="glass-card p-6">
-                        <span class="section-label text-yellow-400">Skill Cloud</span>
-                        <div class="flex flex-col gap-3 mb-6">
-                            <input id="sk-name" class="input-style" placeholder="Skill Name">
-                            <button id="btn-add-skill" onclick="save('skills', {name: 'sk-name'}, 'btn-add-skill')" class="btn-primary">Add Skill</button>
-                        </div>
-                        <div id="skills-list" class="flex flex-wrap gap-2"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script type="module">
-        import { auth, saveData, getData, deleteData, updateData, db } from './firebase-config.js';
-        import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-        const iconMap = { 'shopify': 'bxl-shopify', 'marketing': 'bx-trending-up', 'seo': 'bx-search-alt', 'android': 'bxl-android', 'web': 'bx-code-alt', 'design': 'bx-paint', 'react': 'bxl-react', 'firebase': 'bxl-firebase', 'store': 'bx-store', 'html': 'bxl-html5', 'css': 'bxl-css3', 'js': 'bxl-javascript', 'javascript': 'bxl-javascript', 'node': 'bxl-nodejs', 'php': 'bxl-php', 'python': 'bxl-python', 'git': 'bxl-git' };
-
-        const showModal = (title, msg) => {
-            document.getElementById('modal-title').innerText = title;
-            document.getElementById('modal-msg').innerText = msg;
-            document.getElementById('ui-modal').classList.remove('hidden');
-        };
-
-        window.openEditModal = (item) => {
-            document.getElementById('edit-id').value = item.id;
-            document.getElementById('edit-title').value = item.title;
-            document.getElementById('edit-link').value = item.link;
-            document.getElementById('edit-cat').value = item.category;
-            document.getElementById('edit-desc').value = item.desc;
-            document.getElementById('edit-seo-tags').value = item.seoTags;
-            document.getElementById('edit-seo-desc').value = item.seoDesc;
-            document.getElementById('edit-modal').classList.remove('hidden');
-        };
-
-        window.submitEdit = async () => {
-            const id = document.getElementById('edit-id').value;
-            const data = {
-                title: document.getElementById('edit-title').value,
-                link: document.getElementById('edit-link').value,
-                category: document.getElementById('edit-cat').value,
-                desc: document.getElementById('edit-desc').value,
-                seoTags: document.getElementById('edit-seo-tags').value,
-                seoDesc: document.getElementById('edit-seo-desc').value
-            };
-            await updateData('projects', id, data);
-            document.getElementById('edit-modal').classList.add('hidden');
-            renderAll();
-            showModal("Success", "Project Updated!");
-        };
-
-        const toggleLoading = (id, loading) => {
-            const btn = document.getElementById(id);
-            btn.disabled = loading;
-            btn.innerHTML = loading ? "<i class='bx bx-loader-alt animate-spin'></i> Processing..." : (id === 'btn-update-settings' ? 'Update All Settings' : 'Add/Publish');
-        };
-
-        window.saveSettings = async () => {
-            toggleLoading('btn-update-settings', true);
-            const settings = { about: document.getElementById('set-about').value, fb: document.getElementById('set-fb').value, ig: document.getElementById('set-ig').value, li: document.getElementById('set-li').value, gh: document.getElementById('set-gh').value, wa: document.getElementById('set-wa').value, siteTitle: document.getElementById('seo-site-title').value, siteDesc: document.getElementById('seo-site-desc').value, siteKeywords: document.getElementById('seo-keywords').value };
-            await setDoc(doc(db, "settings", "core"), settings);
-            toggleLoading('btn-update-settings', false);
-            showModal("Success", "Digital Presence & SEO Updated!");
-        };
-
-        window.handleProjectSave = async () => {
-            toggleLoading('btn-pub-project', true);
-            const link = document.getElementById('p-link').value;
-            const title = document.getElementById('p-title').value;
-            if(!link || !title) { toggleLoading('btn-pub-project', false); return showModal("Error", "Title and Link are mandatory!"); }
-            const autoImg = `https://api.microlink.io?url=${encodeURIComponent(link)}&screenshot=true&embed=screenshot.url`;
-            await saveData('projects', { title, link, desc: document.getElementById('p-desc').value, category: document.getElementById('p-category').value, img: autoImg, seoTags: document.getElementById('p-seo-tags').value, seoDesc: document.getElementById('p-seo-desc').value });
-            ['p-title', 'p-link', 'p-desc', 'p-category', 'p-seo-tags', 'p-seo-desc'].forEach(id => document.getElementById(id).value = "");
-            renderAll();
-            toggleLoading('btn-pub-project', false);
-            showModal("Success", "Project Published!");
-        };
-
-        window.handleServiceSave = async () => {
-            toggleLoading('btn-add-service', true);
-            const title = document.getElementById('s-title').value;
-            let icon = 'bx-cube';
-            for (let key in iconMap) { if (title.toLowerCase().includes(key)) { icon = iconMap[key]; break; } }
-            await saveData('services', { title, desc: document.getElementById('s-desc').value, icon });
-            document.getElementById('s-title').value = ""; document.getElementById('s-desc').value = "";
-            renderAll();
-            toggleLoading('btn-add-service', false);
-        };
-
-        window.save = async (col, fields, btnId) => {
-            toggleLoading(btnId, true);
-            let data = {};
-            for (let key in fields) { data[key] = document.getElementById(fields[key]).value; document.getElementById(fields[key]).value = ""; }
-            await saveData(col, data); renderAll();
-            toggleLoading(btnId, false);
-        };
-
-        window.removeData = async (col, id) => {
-            if(confirm("Confirm deletion?")) { await deleteData(col, id); renderAll(); }
-        };
-
-        async function renderAll() {
-            const cols = ['services', 'projects', 'skills'];
-            for (let col of cols) {
-                const list = await getData(col);
-                const container = document.getElementById(`${col}-list`);
-                container.innerHTML = list.map(item => {
-                    // Fix: Use btoa/encode to handle JSON quotes correctly in HTML string
-                    const itemJson = JSON.stringify(item).replace(/"/g, '&quot;');
-                    if(col === 'projects') return `<div class="bg-white/5 border border-white/10 rounded-2xl overflow-hidden"><img src="${item.img}" class="w-full h-32 object-cover opacity-60"><div class="p-4"><div class="flex justify-between items-center mb-2"><span class="text-xs font-bold">${item.title}</span><div class="flex gap-2"><button onclick='openEditModal(${itemJson})' class="text-blue-400"><i class='bx bx-edit'></i></button><button onclick="removeData('projects', '${item.id}')" class="text-red-500"><i class='bx bx-trash'></i></button></div></div></div></div>`;
-                    if(col === 'services') return `<div class="flex justify-between items-center bg-white/5 p-3 rounded-xl"><div class="flex items-center gap-2"><i class='bx ${item.icon}'></i> <span class="text-[11px]">${item.title}</span></div><button onclick="removeData('services', '${item.id}')" class="text-red-500"><i class='bx bx-x-circle'></i></button></div>`;
-                    return `<span class="px-3 py-1 bg-white/5 rounded-lg text-[10px] font-bold border flex items-center gap-2">${item.name} <button onclick="removeData('skills', '${item.id}')" class="text-red-500"><i class='bx bx-x-circle'></i></button></span>`;
-                }).join('');
-            }
-        }
-
-        auth.onAuthStateChanged(user => { if(!user) window.location.href = 'login.html'; });
-        document.getElementById('logout').onclick = () => auth.signOut();
-        renderAll();
-    </script>
+  <script type="module" src="./admin-common.js"></script>
+  <script type="module">
+    import { getData } from './firebase-config.js';
+    const collections = [['projects','project-count'],['services','service-count'],['skills','skill-count']];
+    Promise.all(collections.map(async ([collection,id]) => {
+      try { document.getElementById(id).textContent = (await getData(collection)).length; }
+      catch { document.getElementById(id).textContent = '0'; }
+    }));
+  </script>
 </body>
 </html>

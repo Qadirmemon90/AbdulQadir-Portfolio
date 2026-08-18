@@ -14,62 +14,41 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
     rel="stylesheet">
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-
-  <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background: #050505; color: #f4f4f5; margin: 0; overflow-x: hidden; }
-    .bg-animation { position: fixed; inset: 0; z-index: -1; background: linear-gradient(-45deg, #050505, #0a1a0a, #050505, #0a111a); background-size: 400% 400%; animation: gradientShift 15s ease infinite; }
-    @keyframes gradientShift { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-    .gradient-text { background: linear-gradient(90deg, #6cff52, #3ec5ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.05); }
-    .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1); }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-    
-    /* Skeleton Loader Styles */
-    .skeleton { background: linear-gradient(90deg, #111 25%, #1a1a1a 50%, #111 75%); background-size: 200% 100%; animation: loading 1.5s infinite; border-radius: 1rem; }
-    @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
-
-    .hero-img-container { position: relative; width: 200px; height: 200px; margin-bottom: 2rem; }
-    .hero-img-container::before { content: ''; position: absolute; inset: -15px; background: linear-gradient(45deg, #6cff52, #3ec5ff); border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; opacity: 0.2; filter: blur(20px); animation: morph 8s ease-in-out infinite; }
-    .hero-profile-img { width: 100%; height: 100%; object-fit: cover; border-radius: 3rem; border: 1px solid rgba(255, 255, 255, 0.1); transform: rotate(-3deg); transition: 0.5s ease; }
-    .hero-img-container:hover .hero-profile-img { transform: rotate(0deg) scale(1.05); border-color: #6cff52; }
-    @keyframes morph { 0% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; } 50% { border-radius: 70% 30% 40% 60% / 60% 40% 50% 30%; } 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; } }
-    .skill-badge { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); padding: 12px 24px; border-radius: 100px; display: flex; align-items: center; gap: 10px; transition: all 0.4s; }
-    .skill-badge:hover { border-color: #6cff52; background: rgba(108, 255, 82, 0.05); transform: translateY(-5px); }
-    .filter-btn { padding: 12px 24px; border-radius: 100px; border: 1px solid rgba(255, 255, 255, 0.05); transition: all 0.4s; }
-    .filter-btn.active { background: #fff; color: #000; border-color: #fff; }
-  </style>
+  <link href="./style.css" rel="stylesheet">
 </head>
 
 <body class="selection:bg-[#6cff52] selection:text-black">
 
   <div class="bg-animation"></div>
 
-  <nav class="fixed top-0 w-full z-50 glass py-5">
-    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
-      <a href="#" class="text-2xl font-extrabold tracking-tighter gradient-text uppercase italic">AbdulQadir</a>
+  <nav class="site-nav glass" aria-label="Primary navigation">
+    <div class="site-nav__inner px-5 md:px-7 flex justify-between items-center">
+      <a href="#home" class="brand-mark text-lg font-extrabold gradient-text">AbdulQadir</a>
       <div class="hidden md:flex space-x-10 text-[10px] font-bold uppercase tracking-[0.3em]">
-        <a href="#home" class="hover:text-[#6cff52] transition">Home</a>
-        <a href="#services" class="hover:text-[#6cff52] transition">Services</a>
-        <a href="#skills" class="hover:text-[#6cff52] transition">Skills</a>
-        <a href="#portfolio" class="hover:text-[#6cff52] transition">Projects</a>
+        <a href="#home" class="nav-link" aria-current="page">Home</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#portfolio" class="nav-link">Projects</a>
       </div>
-      <a href="#contact" class="px-6 py-2.5 bg-white text-black rounded-full text-xs font-bold hover:scale-105 transition">Let's Talk</a>
+      <a href="#contact" class="nav-cta px-5 md:px-6 py-2.5 bg-[#b8ff63] text-black rounded-full text-xs font-bold hover:scale-105 transition">Let's Talk</a>
     </div>
   </nav>
 
-  <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-6 pt-24 relative">
+  <main>
+  <section id="home" class="hero-shell min-h-screen flex flex-col justify-center items-center text-center px-6 pt-32 pb-20 relative">
     <div class="reveal active flex flex-col items-center">
       <div class="hero-img-container"><img src="./assets/image.jpg" alt="AbdulQadir Memon" class="hero-profile-img shadow-2xl shadow-[#6cff52]/10"></div>
-      <span class="px-4 py-1.5 rounded-full border border-white/10 text-[9px] uppercase tracking-[0.4em] text-zinc-500 mb-6 inline-block">Crafting Digital Architectures</span>
-      <h1 class="text-6xl md:text-[7.5rem] font-extrabold tracking-tighter leading-[0.85] mb-8">Digital <br> <span class="gradient-text">Architect.</span></h1>
+      <span class="hero-kicker px-4 py-1.5 rounded-full border border-white/10 text-[9px] uppercase tracking-[0.35em] text-zinc-400 mb-6">Available for select projects</span>
+      <h1 class="text-6xl md:text-[7.5rem] font-extrabold tracking-[-0.07em] leading-[0.85] mb-8">Digital <br> <span class="gradient-text">Architect.</span></h1>
       <p id="hero-about" class="max-w-xl mx-auto text-zinc-500 text-lg font-light mb-12 leading-relaxed">Building high-performance ecosystems. Specializing in modern UI & scalable code.</p>
       <div class="flex gap-4">
-        <a href="#contact" class="px-10 py-4 bg-[#6cff52] text-black font-bold rounded-full hover:scale-105 transition">Hire Me</a>
+        <a href="#portfolio" class="px-8 md:px-10 py-4 bg-[#b8ff63] text-black font-bold rounded-full hover:scale-105 transition">Explore work</a>
+        <a href="#contact" class="px-8 md:px-10 py-4 border border-white/10 rounded-full font-bold hover:bg-white/5 transition">Start a project</a>
       </div>
     </div>
   </section>
 
-  <section id="services" class="py-32 px-6">
+  <section id="services" class="section-divider py-24 md:py-32 px-6">
     <div class="max-w-7xl mx-auto">
       <div class="text-center mb-16 reveal">
         <h2 class="text-[10px] font-bold tracking-[0.5em] text-[#6cff52] uppercase mb-4">What I Offer</h2>
@@ -81,7 +60,7 @@
     </div>
   </section>
 
-  <section id="skills" class="py-32 px-6">
+  <section id="skills" class="section-divider py-24 md:py-32 px-6">
     <div class="max-w-7xl mx-auto text-center">
       <div class="mb-16 reveal">
         <h2 class="text-[10px] font-bold tracking-[0.5em] text-[#6cff52] uppercase mb-4">The Stack</h2>
@@ -93,7 +72,7 @@
     </div>
   </section>
 
-  <section id="portfolio" class="py-32 px-6">
+  <section id="portfolio" class="section-divider py-24 md:py-32 px-6">
     <div class="max-w-7xl mx-auto">
       <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16 reveal">
         <div>
@@ -108,7 +87,7 @@
     </div>
   </section>
 
-  <section id="contact" class="py-32 px-6">
+  <section id="contact" class="section-divider py-24 md:py-32 px-6">
     <div class="max-w-6xl mx-auto glass rounded-[3rem] p-8 md:p-16 border border-white/5 reveal">
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <div class="space-y-8">
@@ -117,20 +96,22 @@
             <p class="text-zinc-400 leading-relaxed">Have a project in mind or just want to say hi? My inbox is always open for interesting opportunities and collaboration.</p>
           </div>
           <div class="space-y-4">
-            <div class="flex items-center gap-4 text-sm font-bold"><i class='bx bx-envelope text-2xl text-[#6cff52]'></i> hello@metrisolution.com</div>
+            <div class="flex items-center gap-4 text-sm font-bold"><i class='bx bx-envelope text-2xl text-[#6cff52]'></i> abdulqadir.metrisolution@gmail.com</div>
             <div class="flex items-center gap-4 text-sm font-bold"><i class='bx bx-map text-2xl text-[#3ec5ff]'></i> Karachi, Pakistan</div>
           </div>
         </div>
-        <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
-          <input type="hidden" name="access_key" value="eaa36baa-25df-4de2-b3c9-7222d288fa4b">
-          <input type="text" name="name" placeholder="Name" required class="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-[#6cff52] transition">
-          <input type="email" name="email" placeholder="Email" required class="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-[#6cff52] transition">
-          <textarea name="message" placeholder="Message" rows="4" required class="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:outline-none focus:border-[#6cff52] transition"></textarea>
-          <button type="submit" class="w-full py-5 bg-white text-black font-black uppercase tracking-widest rounded-xl hover:bg-[#6cff52] transition-all transform hover:scale-[1.01]">Send Message</button>
+        <form action="contact.php" method="POST" class="contact-form space-y-6">
+          <div class="contact-honeypot" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+          <input type="text" name="name" aria-label="Your name" placeholder="Name" maxlength="100" required class="modern-input">
+          <input type="email" name="email" aria-label="Your email" placeholder="Email" maxlength="254" required class="modern-input">
+          <textarea name="message" aria-label="Your message" placeholder="Message" rows="4" maxlength="5000" required class="modern-input"></textarea>
+          <button type="submit" class="w-full py-5 bg-[#b8ff63] text-black font-black uppercase tracking-widest rounded-xl hover:brightness-110 transition-all transform hover:scale-[1.01]">Send Message</button>
+          <p class="contact-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </div>
   </section>
+  </main>
 
   <footer class="py-16 px-6 glass border-t border-white/10">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
@@ -142,6 +123,8 @@
       <p class="text-[9px] uppercase tracking-[0.3em] text-zinc-700 font-bold italic">&copy; 2026 METRISOLUTION PVT LTD</p>
     </div>
   </footer>
+
+  <script src="./contact.js" defer></script>
 
   <script type="module">
     import { getData, db } from './firebase-config.js';
@@ -168,13 +151,13 @@
         
         const [skills, services, projects] = await Promise.all([getData('skills'), getData('services'), getData('projects')]);
         
-        document.getElementById('services-grid').innerHTML = services.map(s => `<div class="glass p-8 rounded-[2rem] hover:border-[#6cff52] transition border border-white/5"><i class='bx ${s.icon || 'bx-code-alt'} text-4xl text-[#6cff52] mb-6'></i><h4 class="text-xl font-bold mb-3">${s.title}</h4><p class="text-zinc-500 text-sm leading-relaxed">${s.desc}</p></div>`).join('');
+        document.getElementById('services-grid').innerHTML = services.map((s, index) => `<article class="glass p-8 rounded-[2rem] hover:border-[#b8ff63]/30 hover:-translate-y-1 transition duration-300 border border-white/5"><div class="flex justify-between items-start mb-10"><i class='bx ${s.icon || 'bx-code-alt'} text-4xl text-[#b8ff63]'></i><span class="text-[10px] font-bold tracking-[.25em] text-zinc-600">0${index + 1}</span></div><h4 class="text-xl font-bold mb-3">${s.title}</h4><p class="text-zinc-500 text-sm leading-relaxed">${s.desc}</p></article>`).join('');
         document.getElementById('skills-cloud').innerHTML = skills.map(sk => `<div class="skill-badge group"><span class="w-1.5 h-1.5 rounded-full bg-[#6cff52] shadow-[0_0_5px_#6cff52]"></span><span class="text-[10px] font-bold uppercase tracking-widest text-zinc-400 group-hover:text-white">${sk.name}</span></div>`).join('');
         
         allProjects = projects;
         const categories = ['all', ...new Set(allProjects.map(p => p.category || 'Other'))];
         document.getElementById('filter-tabs').innerHTML = categories.map(cat => `<button onclick="filterPortfolio('${cat}')" class="filter-btn glass capitalize">${cat}</button>`).join('');
-        renderPortfolio('all');
+        window.filterPortfolio('all');
       } catch (e) { console.error("Sync Error:", e); }
     }
 
@@ -189,7 +172,7 @@
     function renderPortfolio(category) {
       const filtered = category === 'all' ? allProjects : allProjects.filter(p => p.category === category);
       const displayProjects = filtered.slice(0, 6);
-      let gridHTML = displayProjects.map(p => `<div class="reveal active group"><div class="relative aspect-[16/10] overflow-hidden rounded-[2.5rem] border border-white/5 bg-zinc-900 mb-6"><img src="${p.img}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700"><div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><a href="${p.link}" target="_blank" class="px-8 py-3 bg-white text-black font-bold rounded-full text-[10px] uppercase tracking-widest">Live Preview</a></div></div><h4 class="text-xl font-bold text-white mb-2 px-2">${p.title}</h4></div>`).join('');
+      let gridHTML = displayProjects.map(p => `<article class="reveal active group glass rounded-[2rem] p-3 hover:-translate-y-1 transition duration-300"><div class="relative aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-white/5 bg-zinc-900 mb-5"><img src="${p.img}" alt="${p.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition duration-700"><div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><a href="${p.link}" target="_blank" rel="noopener" class="px-8 py-3 bg-[#b8ff63] text-black font-bold rounded-full text-[10px] uppercase tracking-widest">Live Preview</a></div></div><div class="px-3 pb-3"><p class="text-[9px] font-bold uppercase tracking-[.25em] text-[#b8ff63] mb-2">${p.category || 'Selected work'}</p><h4 class="text-xl font-bold text-white">${p.title}</h4></div></article>`).join('');
       if (filtered.length > 6) gridHTML += `<div class="flex items-center justify-center col-span-full mt-10"><a href="projects.html" class="px-10 py-5 bg-white/5 border border-white/10 rounded-full font-bold hover:bg-[#6cff52] hover:text-black transition uppercase text-xs tracking-widest">View All Projects</a></div>`;
       document.getElementById('portfolio-grid').innerHTML = gridHTML;
     }
